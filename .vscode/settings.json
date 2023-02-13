@@ -1,0 +1,6 @@
+{
+    "docwriter.style": "JSDoc",
+    "docwriter.language": "French",
+    "docwriter.progress.trackClasses": true,
+    "docwriter.progress.trackTypes": false
+}

@@ -1,7 +1,7 @@
-import { Box, Button, IconButton, typography, useTheme } from "@mui/material"
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material"
 import Header from "../../components/Header"
 import { tokens } from "../../theme"
-import { mockTransations } from "../../data/mockData"
+import { mockTransactions } from "../../data/mockData"
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadDoneOutlined"
 import EmailIcon from "@mui/icons-material/Email"
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale"
@@ -118,6 +118,158 @@ const Dashboard = () => {
                     />
                 </Box>
                 {/* Row 2 */}
+                <Box
+                    gridColumn="span 8"
+                    gridRow="span 2"
+                    backgroundColor={colors.primary[400]}
+                >
+                    <Box
+                        mt="25px"
+                        p="0 30px"
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                    >
+                        <Box>
+                            <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
+                                Revenue Generated
+                            </Typography>
+                            <Typography variant="h3" fontWeight="bold" color={colors.greenAccent[500]}>
+                                $58,567,456
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <IconButton>
+                                <DownloadOutlinedIcon
+                                    sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
+                                />
+                            </IconButton>
+                        </Box>
+                    </Box>
+                    <Box height="250px" mt="-20px">
+                        <LineChart isDashboard={true} />
+                    </Box>
+                </Box>
+                {/* Transcation */}
+                <Box
+                    gridColumn="span 4"
+                    gridRow="span 2"
+                    backgroundColor={colors.primary[400]}
+                    overflow="auto"
+                >
+                    <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        borderBottom={`4px solid ${colors.primary[500]}`}
+                        color={colors.grey[100]}
+                        p="15px"
+                    >
+                        <Typography
+                            color={colors.grey[100]}
+                            variant="h5"
+                            fontWeight="600"
+                        >
+                            Recent Transcation
+                        </Typography>
+
+                    </Box>
+                    {mockTransactions.map((transaction, i) => {
+                        return (
+                            <Box
+                                key={`${transaction.txId}-${i}`}
+                                display="flex"
+                                justifyContent="space-between"
+                                alignItems="center"
+                                borderBottom={`4px solid ${colors.primary[500]}`}
+                                color={colors.grey[100]}
+                                p="15px"
+                            >
+                                <Box>
+                                    <Typography
+                                        color={colors.greenAccent[500]}
+                                        variant="h5"
+                                        fontWeight="600"
+                                    >
+                                        {transaction.txId}
+                                    </Typography>
+                                    <Typography
+                                        color={colors.grey[100]}
+                                    >
+                                        {transaction.user}
+                                    </Typography>
+                                </Box>
+                                <Box color={colors.grey[100]}>{transaction.date}</Box>
+                                <Box
+                                    backgroundColor={colors.greenAccent[500]} p="5px 10px" borderRadius="4px"
+                                >
+                                    {transaction.cost}
+
+                                </Box>
+                            </Box>)
+                    })}
+                </Box>
+                {/* Row 3 */}
+
+                <Box
+                    gridColumn="span 4"
+                    gridRow="span 2"
+                    backgroundColor={colors.primary[400]}
+                    p="30px"
+                >
+                    <Typography variant="h5" fontWeight="600">
+                        Campaign
+                    </Typography>
+                    <Box
+                        display="flex"
+                        flexDirection="column"
+                        alignItems="center"
+                        mt="25px"
+                    >
+                        <ProgressCercle size="125" />
+                        <Typography variant="h5" color={colors.greenAccent[500]} sx={{ mt: "15px" }}>
+                            $48,674 Revenue Generated
+                        </Typography>
+                        <Typography>
+                            Includes extra misc expenditures and cost
+                        </Typography>
+                    </Box>
+                </Box>
+                {/*  final box */}
+                <Box
+                    gridColumn="span 4"
+                    gridRow="span 2"
+                    backgroundColor={colors.primary[400]}
+
+                >
+                    <Typography variant="h5" fontWeight="600" sx={{ p: "30px 30px 0 30px" }}>
+                        Sales Quantity
+                    </Typography>
+                    <Box
+                        height="250px"
+                        mt="-20px"
+                    >
+                        <BarChart isDashbord={true} />
+                    </Box>
+                </Box>
+
+                <Box
+                    gridColumn="span 4"
+                    gridRow="span 2"
+                    backgroundColor={colors.primary[400]}
+                    p="30px"
+                >
+                    <Typography variant="h5" fontWeight="600" sx={{ mb: "15px" }}>
+                        Geography Base Traffic
+                    </Typography>
+                    <Box
+                        height="200px"
+                        mt="25px"
+                    >
+                        <GeographyChart isDashbord={true} />
+                    </Box>
+                </Box>
+
 
             </Box>
 

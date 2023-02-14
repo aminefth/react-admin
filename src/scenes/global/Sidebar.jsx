@@ -50,7 +50,7 @@ const Sidebar = () => {
                 "& .pro-sidebar-inner": {
                     background: `${colors.primary[400]} !important`
                 },
-                "& .pro-icon-warpper": {
+                "& .pro-icon-wrapper": {
                     backgroundColor: "transparent !important"
                 },
                 "& .pro-inner-item": {

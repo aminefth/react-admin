@@ -10,9 +10,9 @@ import TrafficIcon from "@mui/icons-material/Traffic"
 import LineChart from "../../components/LineChart"
 import BarChart from "../../components/BarChart"
 import GeographyChart from "../../components/GeographyChart"
-import StatBox from "../../components/StatBox"
-import ProgressCircle from "../../components/ProgressCercle"
-import { color } from "@mui/system"
+import StateBox from "../../components/StateBox"
+import ProgressCercle from "../../components/ProgressCercle"
+
 
 
 
@@ -26,20 +26,21 @@ const Dashboard = () => {
         <Box m="20px">
             <Box display='flex' justifyContent="space-between" alignItems="center">
                 <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-            </Box>
-            <Box>
-                <Button
-                    sx={{
-                        backgroundColor: colors.blueAccent[700],
-                        color: colors.grrey[100],
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                        padding: "10px 20px",
-                    }}
-                >
-                    <DownloadOutlinedIcon sx={{ ml: "10px" }} />
-                    Download Reports
-                </Button>
+
+                <Box>
+                    <Button
+                        sx={{
+                            backgroundColor: colors.blueAccent[700],
+                            color: colors.grey[100],
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            padding: "10px 20px",
+                        }}
+                    >
+                        <DownloadOutlinedIcon sx={{ ml: "10px" }} />
+                        Download Reports
+                    </Button>
+                </Box>
             </Box>
             {/* GRIS SYSTEM DASH */}
             <Box
@@ -50,7 +51,7 @@ const Dashboard = () => {
             >
                 {/* ROW 1 */}
                 <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
-                    <StatBox
+                    <StateBox
                         title="12,361"
                         subtitle="Email Sent"
                         progress="0.75"
@@ -64,6 +65,60 @@ const Dashboard = () => {
                         }
                     />
                 </Box>
+
+
+                <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+                    <StateBox
+                        title="4321,361"
+                        subtitle="Sales Obtained"
+                        progress="0.5"
+                        increase="+23%"
+                        icon={
+                            <PointOfSaleIcon
+                                sx={{
+                                    color: colors.greenAccent[600], fontSize: "26px"
+                                }}
+                            />
+                        }
+                    />
+                </Box>
+
+
+                {/* ROW 1 */}
+                <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+                    <StateBox
+                        title="32,441"
+                        subtitle="New Client"
+                        progress="0.55"
+                        increase="+34%"
+                        icon={
+                            <PersonAddIcon
+                                sx={{
+                                    color: colors.greenAccent[600], fontSize: "26px"
+                                }}
+                            />
+                        }
+                    />
+                </Box>
+
+                {/* ROW 1 */}
+                <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+                    <StateBox
+                        title="12,361"
+                        subtitle="Traffic Inbound"
+                        progress="0.75"
+                        increase="+14%"
+                        icon={
+                            <TrafficIcon
+                                sx={{
+                                    color: colors.greenAccent[600], fontSize: "26px"
+                                }}
+                            />
+                        }
+                    />
+                </Box>
+                {/* Row 2 */}
+
             </Box>
 
 
